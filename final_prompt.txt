@@ -1,0 +1,123 @@
+# Role & Objective
+
+You are a software maintenance engineer tasked with cleaning up a Python project's structure and making it cross-platform compatible. Your goal is to resolve file naming issues, unify dependency declarations, ensure cross-platform compatibility, and add clear configuration documentation while preserving all existing business logic and ensuring all tests pass.
+
+# Inputs & Context
+
+The project is a Python application with the following structure:
+- Source code in `app/` directory
+- Tests in `tests/` folder
+- Configuration files: `config.yaml`, `config.dev.yaml`
+- Dependency files: `requirements.txt`, `pyproject.toml`
+- Shell scripts: `dev_start.sh`
+- Migration tool: `data_migration_tool.py.py` (has incorrect double extension)
+
+Current issues:
+1. File `data_migration_tool.py.py` has a double `.py.py` extension
+2. Dependencies are declared in both `requirements.txt` and `pyproject.toml` but are inconsistent between them
+3. `dev_start.sh` won't work on Windows systems
+4. Configuration files lack clear usage documentation
+
+# Step-by-Step Instructions
+
+Execute the following steps in order:
+
+## 1. Fix File Naming Issue
+- Rename `data_migration_tool.py.py` to `data_migration_tool.py`
+- Verify the renamed file is accessible and any imports referencing it are still valid
+
+## 2. Unify Dependency Declarations
+- Review dependencies in both `requirements.txt` and `pyproject.toml`
+- Identify inconsistencies in package names, versions, or missing entries
+- Synchronize both files to contain the same runtime dependencies with consistent version specifications
+- Ensure `pyproject.toml` contains the dependencies in the `[project] dependencies` section
+- Ensure `requirements.txt` mirrors the runtime dependencies from `pyproject.toml`
+- Add comments in both files explaining their relationship and synchronization requirement
+- Include development/testing dependencies in `pyproject.toml` under `[project.optional-dependencies]` if appropriate
+
+## 3. Ensure Cross-Platform Compatibility
+- Analyze `dev_start.sh` to understand its functionality
+- Create a Windows-compatible alternative script (e.g., `dev_start.bat`) that performs the same operations
+- Alternatively, modify the startup approach to work on both Unix-like systems and Windows
+- Ensure both scripts set the same environment variables and execute the same commands
+- Test that the solution works on Windows systems
+
+## 4. Add Configuration Documentation
+- Add clear inline comments to `config.yaml` explaining:
+  - Purpose of the configuration file
+  - Description of each configuration parameter
+  - When to use this file (e.g., production environment)
+- Add clear inline comments to `config.dev.yaml` explaining:
+  - Purpose of this development configuration
+  - How it differs from production config
+  - When to use this file (e.g., development/local environment)
+- Optionally, create or update a README file with configuration usage instructions
+
+## 5. Run Tests and Generate Results
+- Execute pytest on all tests in the `tests/` folder
+- Ensure the `logs/` directory exists; create it if necessary
+- Save pytest results to the `logs/` folder (e.g., as `results.xml` or other appropriate format)
+- Capture the test execution summary (number of passed/failed tests)
+
+## 6. Verify Test Results
+- Check whether all tests passed successfully
+- If any tests failed, review the failures to determine if they are due to your changes
+- Prepare a clear report stating whether all tests passed
+
+# Output Specification
+
+Deliver the following:
+
+1. **File modifications:**
+   - Renamed file: `data_migration_tool.py` (without double extension)
+   - Updated `requirements.txt` with synchronized dependencies
+   - Updated `pyproject.toml` with synchronized dependencies and appropriate sections
+   - Cross-platform startup script(s): `dev_start.bat` (or modified solution)
+   - Documented config files: `config.yaml` and `config.dev.yaml` with inline comments
+
+2. **Test results:**
+   - Test results file saved in `logs/` directory
+   - Clear report explicitly stating whether all tests passed
+   - If applicable, summary showing "X passed" or details of any failures
+
+3. **Documentation:**
+   - Configuration usage documentation (either inline comments or README section)
+   - Brief notes on cross-platform compatibility solution
+
+# Constraints & Preferences
+
+**Critical constraints:**
+- **Do NOT modify any existing test files** in the `tests/` folder
+- **Do NOT alter business logic** in any application code (`app/` directory files)
+- The only code modifications allowed are for:
+  - Fixing file naming
+  - Updating dependency declarations
+  - Adding documentation/comments
+  - Creating cross-platform compatibility scripts
+
+**Style preferences:**
+- Use clear, descriptive comments
+- Follow existing code formatting conventions
+- Maintain consistent indentation and style with the existing codebase
+
+**Technical requirements:**
+- All solutions must work on Windows systems
+- Dependency version specifications should be explicit where currently specified
+- Configuration documentation should be concise but comprehensive
+
+# Quality Gates
+
+Before completing this task, verify the following completion criteria:
+
+1. ✓ File `data_migration_tool.py` exists with single `.py` extension
+2. ✓ `requirements.txt` and `pyproject.toml` contain consistent, synchronized dependencies
+3. ✓ Both files have comments explaining their synchronization requirement
+4. ✓ Windows-compatible startup solution exists (e.g., `dev_start.bat`)
+5. ✓ Both `config.yaml` and `config.dev.yaml` contain clear inline documentation
+6. ✓ All tests in `tests/` folder remain unmodified
+7. ✓ Pytest has been executed and results saved to `logs/` directory
+8. ✓ All tests pass successfully (exit code 0)
+9. ✓ A clear statement has been provided confirming test results
+10. ✓ No business logic has been altered in `app/` directory
+
+**Execute all steps above and provide a final explicit confirmation that all tests passed, including the test count and results summary.**

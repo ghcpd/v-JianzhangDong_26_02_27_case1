@@ -2,7 +2,16 @@
 name = "order_analytics_service"
 version = "0.1.0"
 
+# runtime dependencies. keep this list in sync with requirements.txt
+# when adding new packages, pin versions to avoid drift.
 dependencies = [
-    "pydantic",
+    "pydantic==1.10.2",
     "PyYAML"
+]
+
+[project.optional-dependencies]
+# extras for development and testing. install with pip install .[dev].
+dev = [
+    "pytest",
+    "requests"
 ]
