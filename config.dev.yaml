@@ -1,2 +1,4 @@
+# environment name (prod/dev)
 env: dev
+# lower threshold for development testing
 threshold: 500

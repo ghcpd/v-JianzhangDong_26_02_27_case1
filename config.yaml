@@ -1,2 +1,4 @@
+# environment name (prod/dev)
 env: prod
+# orders with value greater than or equal to this threshold are considered high value
 threshold: 1000
