@@ -1,0 +1,11 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.2, pytest-7.4.3, pluggy-1.6.0
+rootdir: D:\projects\v-JianzhangDong_26_02_27_case1\vscModelB-oswe-omai-d36-mix2-rkld-rl-s140-0224\v-JianzhangDong_26_02_27_case1
+plugins: anyio-4.12.1, cov-4.1.0
+collected 4 items
+
+tests\test_service.py ...                                                [ 75%]
+tests\test_utils.py .                                                    [100%]
+
+- generated xml file: D:\projects\v-JianzhangDong_26_02_27_case1\vscModelB-oswe-omai-d36-mix2-rkld-rl-s140-0224\v-JianzhangDong_26_02_27_case1\logs\results.xml -
+============================== 4 passed in 0.10s ==============================
