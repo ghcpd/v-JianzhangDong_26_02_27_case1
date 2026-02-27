@@ -1,2 +1,7 @@
+# Development Configuration
+# This configuration overrides production settings for local development
+# Use this file when developing and testing locally
+# Settings in this file take precedence over config.yaml in development mode
+
 env: dev
-threshold: 500
+threshold: 500  # Lower threshold for easier testing with sample data

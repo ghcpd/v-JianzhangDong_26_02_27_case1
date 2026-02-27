@@ -1,2 +1,7 @@
+# Production Configuration
+# This is the default configuration used in production environment
+# Do not modify these settings without careful consideration of production impact
+# For environment-specific overrides, use config.dev.yaml in development
+
 env: prod
-threshold: 1000
+threshold: 1000  # Minimum order amount threshold in production (in currency units)
