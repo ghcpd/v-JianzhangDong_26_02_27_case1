@@ -1,6 +1,5 @@
-#!/bin/bash
-# Development server startup script
+# Development server startup script for Windows
 # Sets the development environment and starts the application
 
-export ENV=dev
+$env:ENV = "dev"
 python run.py

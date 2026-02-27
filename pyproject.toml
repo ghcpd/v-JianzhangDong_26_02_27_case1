@@ -3,6 +3,12 @@ name = "order_analytics_service"
 version = "0.1.0"
 
 dependencies = [
-    "pydantic",
-    "PyYAML"
+    "pydantic==1.10.2",
+    "PyYAML",
+    "requests"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest"
 ]
