@@ -1,2 +1,5 @@
+# Production configuration (default)
+# - Used when ENV is unset or not "dev"
+# - To run in development mode, use `python run.py --env dev` or run dev_start scripts.
 env: prod
 threshold: 1000

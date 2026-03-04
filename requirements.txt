@@ -1,4 +1,2 @@
 pydantic==1.10.2
 PyYAML
-pytest
-requests

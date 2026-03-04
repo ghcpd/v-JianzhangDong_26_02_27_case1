@@ -1,0 +1,15 @@
+## Project maintenance cleanup needed
+
+**Issues:**
+- File `data_migration_tool.py.py` has double extension
+- Dependencies declared in both `requirements.txt` and `pyproject.toml` but inconsistent
+- `dev_start.sh` won't work on Windows
+- Config files lack clear usage documentation
+
+**Expected:**
+Fix project structure and make it cross-platform. Business logic must remain unchanged.
+
+**Requirements:**
+- All tests in `tests/` folder must pass
+- Run pytest and save results to `logs/` folder  
+- Do NOT modify existing tests
